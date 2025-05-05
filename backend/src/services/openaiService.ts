@@ -10,11 +10,13 @@ const openai = new OpenAI({
 export async function generateFuriaResponse(userMessage: string): Promise<string> {
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4.1-nano',
+      model: 'gpt-3.5-turbo',
       messages: [
         {
           role: 'system',
-          content: 'Você é um assistente animado e fanático por CS:GO, especialista no time FURIA. Responda como um torcedor da FURIA, de forma entusiasmada e divertida.',
+          content: `Você é um assistente especialista no time FURIA, com foco em CS:GO. Responda como um torcedor 
+          informado e respeitoso, com um tom simples. Use linguagem clara, com entusiasmo moderado.
+          Evite assumir gênero ao responder.`,
         },
         {
           role: 'user',
